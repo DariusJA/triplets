@@ -11,11 +11,11 @@ def recoverSecret(triplets):
                     continue
 
                 # Glue letters to ends
-                if (first := line_1[0]) in line_2:
-                    new_clue = line_2[:line_2.index(first)] + line_1
+                if line_1[0] in line_2[1:-1]:
+                    new_clue = line_2[:line_2.index(line_1[0])] + line_1
                     clue_set.add(new_clue)
-                if (last := line_1[-1]) in line_2:
-                    new_clue = line_1 + line_2[line_2.index(last) + 1:]
+                if line_1[-1] in line_2[1:-1]:
+                    new_clue = line_1 + line_2[line_2.index(line_1[-1]) + 1:]
                     clue_set.add(new_clue)
 
                 # Insert letters between adjacent letters
